@@ -22,12 +22,12 @@ var twoSum = function(nums, target) {
 
     for (i = 0; i < nums.length; i++) {
         for (j = 0; j < nums.length; j++) {
-            if (nums[i] + nums[j] === target) {
-                console.log([i, j]);
+            if (nums[i] + nums[j] === target && i != j) {
+                return console.log([i, j]);
             }
         }
     }
     return;
 };
 
-twoSum([2, 7, 11, 15], 9)
+twoSum([3, 3], 6)
