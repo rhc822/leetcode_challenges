@@ -12,24 +12,34 @@ findSquareRoot(63504) // 252
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+/*
+
+I found this way to calculate the square root manually on the following website:
+
+http://www.math.com/school/subject1/lessons/S1U1L9DP.html
+
+
+
+
 // 1) calculate all perfect squares under 100,000 and store values in an array
 
-const perfectSquares = [1, 2, 3];
-console.log(perfectSquares)
-perfectSquares += 1;
-console.log(perfectSquares)
+const perfectSquares = [];
+console.log(perfectSquares);
 
-// for (i = 1; i < 100,000; i++){
+for (i = 1; i < 100000; i++){
 
-//     if (i * i === 5) {
+  perfectSquares.push(i * i);
 
-//         perfectSquares += i;
+  if (i * i >= 100000) {
 
-//     }
+        break;
 
-// }
+    }
 
-// console.log(perfectSquares);
+
+  }
+
+console.log(perfectSquares);
 
 // 2) Take the input of a given number and check if it is > 1
 
@@ -39,7 +49,7 @@ console.log(perfectSquares)
 
 
 
-// 4) Divde the given number by the lower perfect square number
+// 4) Divide the given number by the lower perfect square number
 
 
 
