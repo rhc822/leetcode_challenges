@@ -18,7 +18,7 @@ I found this way to calculate the square root manually on the following website:
 
 http://www.math.com/school/subject1/lessons/S1U1L9DP.html
 
-
+*/
 
 
 // 1) calculate all perfect squares under 100,000 and store values in an array
@@ -43,7 +43,21 @@ console.log(perfectSquares);
 
 // 2) Take the input of a given number and check if it is > 1
 
+function calculateSquareRoot(num) {
 
+    if (num > 1 && num <= 100000) {
+
+        console.log("Hello World");
+
+    }
+    else {
+
+        console.log("Number is invalid. Please enter a number greater than 1 and less than 100,000");
+
+    }
+}
+
+calculateSquareRoot(100000);
 
 // 3) Find the nearest perfect squares on either side of given number
 
