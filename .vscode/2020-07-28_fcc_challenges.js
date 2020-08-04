@@ -24,11 +24,13 @@ http://www.math.com/school/subject1/lessons/S1U1L9DP.html
 // 1) calculate all perfect squares under 100,000 and store values in an array
 
 const perfectSquares = [];
-console.log(perfectSquares);
+const rootsOfPerfectSquares = []
+//console.log(perfectSquares);
 
 for (i = 1; i < 100000; i++){
 
   perfectSquares.push(i * i);
+  rootsOfPerfectSquares.push(i);
 
   if (i * i >= 100000) {
 
@@ -36,18 +38,27 @@ for (i = 1; i < 100000; i++){
 
     }
 
-
   }
 
 console.log(perfectSquares);
+console.log(rootsOfPerfectSquares);
 
-// 2) Take the input of a given number and check if it is > 1
+// 2) Take the input of a given number and check if it is > 1 and <= 100000
 
 function calculateSquareRoot(num) {
 
     if (num > 1 && num <= 100000) {
 
-        console.log("Hello World");
+        for (i = 0; i < perfectSquares.length; i++) { // 3) Find the nearest perfect squares on either side of given number
+          if (num === perfectSquares[i]) { // Check if given number is a perfect square
+                alreadyPerfectSquare = perfectSquares[i];
+                console.log(alreadyPerfectSquare);
+            }
+          else if (num < perfectSquares[i] && num > perfectSquares[i - 1] ) { // 3) Find the nearest perfect squares on either side of given number
+                bottomSquareRoot = rootsOfPerfectSquares[i - 1];
+                console.log(((num / bottomSquareRoot) + bottomSquareRoot) / 2); // 4) Divide the given number by the lower perfect square number and average the resulting answer and the lower perfect square number together
+            }
+          }
 
     }
     else {
@@ -57,18 +68,7 @@ function calculateSquareRoot(num) {
     }
 }
 
-calculateSquareRoot(100000);
-
-// 3) Find the nearest perfect squares on either side of given number
-
-
-
-// 4) Divide the given number by the lower perfect square number
-
-
-
-// 5) Average the resulting answer and the lower perfect square number together
-
+calculateSquareRoot(1000)
 
 
 // 6) Take that resulting answer Test if answer is to desired accuracy
