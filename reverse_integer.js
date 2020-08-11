@@ -1,5 +1,8 @@
 /************************************
 
+https://leetcode.com/problems/reverse-integer/
+
+
 Given a 32-bit signed integer, reverse digits of an integer.
 
 EXAMPLE 1:
@@ -27,17 +30,19 @@ var reverse = function(x) {
 
     //~ if the number is within Range, accept it
     //~ else send a message not within range
-    // convert to string and loop through each number backwards
+    //~ convert to string and loop through each number backwards
     // at each pass, store values in a new variable
     // convert that variable back to number
 
-    if (x <= 2147483647 || x >= -2147483647) {
+    if (x <= 2147483647 && x >= -2147483647) {
 
-        const xString = (String(x));
+        let xString = "";
+        xString = x.toString();
+        let reversedString = "";
         for (let i = xString.length - 1; i >= 0; i--) {
-            let reversedString = xString[i];
-        }
-        return reversedString;
+            reversedString += xString[i];
+            }
+        return parseInt(reversedString, 10);
     }
 
     else {
@@ -45,7 +50,6 @@ var reverse = function(x) {
         return 0;
 
     }
-
 };
 
-console.log(reverse(256));
+console.log(reverse(1234));
