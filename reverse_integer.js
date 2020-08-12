@@ -31,8 +31,8 @@ var reverse = function(x) {
     //~ if the number is within Range, accept it
     //~ else send a message not within range
     //~ convert to string and loop through each number backwards
-    // at each pass, store values in a new variable
-    // convert that variable back to number
+    //~ at each pass, store values in a new variable
+    //~ convert that variable back to integer
 
     if (x <= 2147483647 && x >= -2147483647) {
 
@@ -41,6 +41,11 @@ var reverse = function(x) {
         let reversedString = "";
         for (let i = xString.length - 1; i >= 0; i--) {
             reversedString += xString[i];
+            }
+            if (reversedString.includes("-")) {
+                let negativeSign = reversedString.charAt(reversedString.length - 1)
+                return parseInt(negativeSign + reversedString, 10);
+
             }
         return parseInt(reversedString, 10);
     }
@@ -52,4 +57,4 @@ var reverse = function(x) {
     }
 };
 
-console.log(reverse(1234));
+console.log(reverse(-47658));
