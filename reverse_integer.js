@@ -28,28 +28,34 @@ Assume we are dealing with an environment which could only store integers within
  */
 var reverse = function(x) {
 
-    //~ if the number is within Range, accept it
-    //~ else send a message not within range
-    //~ convert to string and loop through each number backwards
-    //~ at each pass, store values in a new variable
-    //~ convert that variable back to integer
 
-    if (x <= 2147483647 && x >= -2147483647) {
+
+
+
+
+
+        // If the number is within Range, accept it
+    if (x <= 0x7FFFFFFF && x >= -0x7FFFFFFF) {
 
         let xString = "";
         xString = x.toString();
+        // Convert integer to string and...
         let reversedString = "";
+        // ...loop through each "letter" backwards
         for (let i = xString.length - 1; i >= 0; i--) {
+            // With each pass, store value in a new variable
             reversedString += xString[i];
             }
+            // If given value is negative, "record" the minus in a separate variable and add it back when converting to integer
             if (reversedString.includes("-")) {
                 let negativeSign = reversedString.charAt(reversedString.length - 1)
+                // Convert that variable back to an integer
                 return parseInt(negativeSign + reversedString, 10);
 
             }
         return parseInt(reversedString, 10);
     }
-
+    // If not in range, send a message return a 0
     else {
 
         return 0;
