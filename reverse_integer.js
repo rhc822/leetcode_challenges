@@ -28,32 +28,29 @@ Assume we are dealing with an environment which could only store integers within
  */
 var reverse = function(x) {
 
+    let xString = "";
+    xString = x.toString();
+    // Convert integer to string and...
+    let reversedString = "";
+    // ...loop through each "letter" backwards
+    for (let i = xString.length - 1; i >= 0; i--) {
+        // With each pass, store value in a new variable
+        reversedString += xString[i];
+        }
+        // If given value is negative, "record" the minus in a separate variable and add it back when converting to integer
+        if (reversedString.includes("-")) {
+            let negativeSign = reversedString.charAt(reversedString.length - 1)
+            // Convert that variable back to an integer
+            return parseInt(negativeSign + reversedString, 10);
+
+        }
 
 
-
-
-
-
-        // If the number is within Range, accept it
+    // If the number is within Range, accept it
     if (x <= 0x7FFFFFFF && x >= -0x7FFFFFFF) {
 
-        let xString = "";
-        xString = x.toString();
-        // Convert integer to string and...
-        let reversedString = "";
-        // ...loop through each "letter" backwards
-        for (let i = xString.length - 1; i >= 0; i--) {
-            // With each pass, store value in a new variable
-            reversedString += xString[i];
-            }
-            // If given value is negative, "record" the minus in a separate variable and add it back when converting to integer
-            if (reversedString.includes("-")) {
-                let negativeSign = reversedString.charAt(reversedString.length - 1)
-                // Convert that variable back to an integer
-                return parseInt(negativeSign + reversedString, 10);
-
-            }
         return parseInt(reversedString, 10);
+
     }
     // If not in range, send a message return a 0
     else {
