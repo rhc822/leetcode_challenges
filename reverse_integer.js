@@ -39,25 +39,24 @@ var reverse = function(x) {
         }
         // If given value is negative, "record" the minus in a separate variable and add it back when converting to integer
         if (reversedString.includes("-")) {
-            let negativeSign = reversedString.charAt(reversedString.length - 1)
+
+            let negativeSign = reversedString.charAt(reversedString.length - 1);
             // Convert that variable back to an integer
-            return parseInt(negativeSign + reversedString, 10);
+            reversedString = parseInt(negativeSign + reversedString, 10);
 
         }
+        // If the number is within Range, accept it
+        if (reversedString <= 0x7FFFFFFF && reversedString >= -0x7FFFFFFF) {
 
+            return parseInt(reversedString, 10);
 
-    // If the number is within Range, accept it
-    if (x <= 0x7FFFFFFF && x >= -0x7FFFFFFF) {
+        }
+        // If not in range, send a message return a 0
+        else {
 
-        return parseInt(reversedString, 10);
+            return 0;
 
-    }
-    // If not in range, send a message return a 0
-    else {
-
-        return 0;
-
-    }
+        }
 };
 
-console.log(reverse(-47658));
+console.log(reverse(-2147483648));
