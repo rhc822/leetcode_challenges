@@ -30,9 +30,33 @@ Coud you solve it without converting the integer to a string?
  */
 var isPalindrome = function(x) {
 
-    for
     // read from left and store value in var
     // read from right and store value in another var
     // compare the vars if equal then say yes a palindrome
 
+    let leftToRight = x;
+    let rightToLeft = "";
+    let xToString = x.toString();
+    // Convert integer to string and...
+    // ...loop through each "letter" backwards
+    for (let i = xToString.length - 1; i >= 0; i--) {
+        // With each pass, store value in a new variable
+        rightToLeft += xToString[i];
+        rightToLeft = parseInt(rightToLeft, 10);
+        }
+
+    // If the numbers are equal, accept it
+    if (leftToRight === rightToLeft) {
+
+        return true;
+
+    }
+        // If not in range, send a message return a 0
+    else {
+
+        return false;
+
+    }
 };
+
+console.log(isPalindrome(10));
