@@ -64,13 +64,23 @@ var romanToInt = function(s) {
         M: 1000
     };
 
-    return console.log(numeralList.I + numeralList.V);
     //loop through the letters in the given string
-    //for each letter, reference the table
+    for (let i=0; i < s.length; i++) {
+        let romanNumeral = s[i]
+
+        //for each letter, reference the table
+        for (j in numeralList) {
+            if (romanNumeral === j) {
+                console.log(j)
+            }
+        }
+
+    }
+
     //if the letter is smaller than the number after it, subtract the numbers; otherwise, add the numbers
     //perform the operation
     //the decimal equivalent displays on the console
 
 };
 
-romanToInt();
+romanToInt("IVI");
