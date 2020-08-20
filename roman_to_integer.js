@@ -64,20 +64,32 @@ var romanToInt = function(s) {
         M: 1000
     };
 
+    let integerArray = [];
+    let calculation = 0;
     //loop through the letters in the given string
     for (let i=0; i < s.length; i++) {
         let romanNumeral = s[i]
 
-        //for each letter, reference the table
+        //for each letter, reference the table, convert to the appropriate integer, and store in an array
         for (j in numeralList) {
             if (romanNumeral === j) {
-                console.log(j)
+                integerArray.push(numeralList[j]);
+                break;
             }
         }
-
     }
 
     //if the letter is smaller than the number after it, subtract the numbers; otherwise, add the numbers
+    for (let i=0; i < integerArray.length; i++) {
+        if (integerArray[i] < integerArray[i + 1]) {
+            calculation += integerArray[i] - integerArray[i + 1];
+        }
+        else {
+            calculation += integerArray[i] + integerArray[i + 1]
+        }
+    }
+    console.log(calculation);
+    // && romanNumeral - 1 < romanNumeral
     //perform the operation
     //the decimal equivalent displays on the console
 
