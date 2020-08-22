@@ -64,55 +64,28 @@ var romanToInt = function(s) {
         M: 1000
     };
 
-    // let integerArray = [];
+    // Create an empty variable to hold the running tabulation during conversion
     let calculation = 0;
 
     //loop through the letters in the given string
     for (let i=0; i < s.length; i++) {
+        // The number it's currently on in the loop
         let currentRomanNumeral = numeralList[s[i]];
+        // The next number in the loop
         let nextRomanNumeral = numeralList[s[i + 1]];
+        // Logic to determine whether to add the numbers
         if (currentRomanNumeral >= (nextRomanNumeral || 0)) {
             calculation += currentRomanNumeral;
-
+        // Logic to determine whether to subtract the numbers
         } else {
 
             calculation -= currentRomanNumeral;
 
         }
-
     }
-
-    console.log(typeof calculation);
-    console.log(calculation);
-
-
-
-        //for each letter, reference the table, convert to the appropriate integer, and store in an array
-
-    //     for (j in numeralList) {
-    //         if (romanNumeral === j) {
-    //             integerArray.push(numeralList[j]);
-    //             break;
-    //         }
-    //     }
-    // }
-
-    //if the letter is smaller than the number after it, subtract the numbers; otherwise, add the numbers
-
-    // for (let i = integerArray.length - 1; i > 0; i--) {
-    //     if (integerArray[i - 1] >= integerArray[i]) {
-    //         calculation += integerArray[i - 1] + integerArray[i];
-    //     }
-    //     else {
-    //         calculation -= integerArray[i];
-    //     }
-    // }
-
-
-    // && romanNumeral - 1 < romanNumeral
-    //perform the operation
-    //the decimal equivalent displays on the console
+    console.log(calculation)
+    return calculation;
 
 };
 
-romanToInt("III");
+romanToInt("MCMXCIV");
