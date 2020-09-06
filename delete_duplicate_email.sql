@@ -26,8 +26,33 @@ Your output is the whole Person table after executing your sql. Use delete state
 
  */
 
-/* CREATE VIEW [NoDuplicates] AS SELECT DISTINCT email FROM Person; */
-/* SELECT * FROM [NoDuplicates] */
-SELECT id, email FROM Person
--- SELECT DISTINCT email FROM Person
--- GROUP BY id
+
+
+
+
+/*
+
+The query below deletes anything that is not the minimum id of a duplicate from the email column
+
+*/
+
+DELETE FROM Person
+WHERE id NOT IN
+    (
+    SELECT MIN(id)
+    FROM Person
+    GROUP BY email
+    )
+
+/*
+
+Leetcode only allows MySQL, not SQLite, so I had to tweak the code above to what it is below. Inside the parentheses inner query, MySQL doesn't allow the same table reference that the outer SELECT query has (in this case, Person table). However, it does allow a SELECT * provided you use an alias (in the case below, PersonTable)
+
+DELETE FROM Person
+WHERE id NOT IN
+    (
+    SELECT MIN(id)
+    FROM (SELECT * FROM Person) AS PersonTable
+    GROUP BY email
+    )
+*/
